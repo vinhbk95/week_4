@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+			<h2 class="text-center">Login</h2>
+	<div class="text-center"><a href="/signup" title="SingUp">Create an account? Click here!</a></div>
+	<hr>
+	<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+        	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        	<strong>Notice</strong> <%= value %>
+        </div>
+        <% end %>
+	<%= form_for(:session, url: login_path) do |f| %>
+		<div class="field">
+		    <%= f.label :email %><br>
+		    <%= f.email_field :email , class: "form-control"%>
+		  </div>
+		  <div class="field">
+		    <%= f.label :password %><br>
+		    <%= f.password_field :password , class: "form-control"%>
+		  </div>
+		  <hr>
+		  <div class="actions">
+		    <%= f.submit "Login", class: "btn btn-primary center-block btn-block"%>
+		  </div>
+	<% end %>
+		</div>
+	</div>
+</div>
